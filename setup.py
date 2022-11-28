@@ -6,11 +6,11 @@ import os
 import subprocess
 import time
 
-version_file = 'hat/version.py'
+version_file = '/model/hat/version.py'
 
 
 def readme():
-    with open('README.md', encoding='utf-8') as f:
+    with open('/model/README.md', encoding='utf-8') as f:
         content = f.read()
     return content
 
@@ -57,7 +57,7 @@ __gitsha__ = '{}'
 version_info = ({})
 """
     sha = get_hash()
-    with open('VERSION', 'r') as f:
+    with open('/model/VERSION', 'r') as f:
         SHORT_VERSION = f.read().strip()
     VERSION_INFO = ', '.join([x if x.isdigit() else f'"{x}"' for x in SHORT_VERSION.split('.')])
 
@@ -72,7 +72,7 @@ def get_version():
     return locals()['__version__']
 
 
-def get_requirements(filename='requirements.txt'):
+def get_requirements(filename='/model/requirements.txt'):
     here = os.path.dirname(os.path.realpath(__file__))
     with open(os.path.join(here, filename), 'r') as f:
         requires = [line.replace('\n', '') for line in f.readlines()]
